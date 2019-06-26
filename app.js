@@ -4,7 +4,11 @@ window.addEventListener("load", () => {
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-      console.log(position);
+      long = position.coords.longitude;
+      lat = position.coords.latitude;
+
+      const proxy = "https://cors-anywhere.herokuapp.com";
+      const api = `https://api.darksky.net/forecast/04bf3ace72997ad39fd8b5be2a5edd8f/${lat},${long}`;
     });
   }
 });
